@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/button';
 import type { Property } from '@/types/property';
 import { PROPERTY_TYPE_LABELS, OPERATION_TYPE_LABELS } from '@/types/property';
 import { formatPrice, formatArea, truncateText } from '@/lib/utils';
+import { CompareButton } from './CompareButton'; // Importamos el botón de comparación
 
 /**
  * Props del componente PropertyCard.
@@ -117,6 +118,10 @@ export function PropertyCard({ property, onDelete }: PropertyCardProps): React.R
       </CardContent>
 
       <CardFooter className="p-4 pt-0 gap-2">
+
+        {/* Botón de comparación */}
+        <CompareButton property={property} />
+         
         {/* Botón ver detalles */}
         <Button asChild className="flex-1">
           <Link to={`/property/${property.id}`}>Ver detalles</Link>
